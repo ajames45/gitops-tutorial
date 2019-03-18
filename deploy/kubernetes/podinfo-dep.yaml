@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: podinfo
 spec:
-  replicas: 5
+  replicas: 1
   template:
     metadata:
       labels:
@@ -12,9 +12,6 @@ spec:
     spec:
       containers:
       - name: podinfo
-      +  annotations:
-      +      flux.weave.works/tag.podinfo: glob:*
-      +      flux.weave.works/automated: 'true'
         image: quay.io/stefanprodan/podinfo:1.0.0
         ports:
         - containerPort: 3000
